@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+{% block title %}Editer
+{% endblock %}
+
+{% block body %}
+
+
+	<div class="container mt-4">
+		<h2>Modifier le livre</h2>
+		{{ form_start(form) }}
+		<div class="row">
+			<div class="col-md-4">
+				{{form_row(form.titre)}}
+			</div>
+			<div class="col-md-4">
+				{{form_row(form.auteur)}}
+			</div>
+			<div class="col-md-4">
+				{{form_row(form.note)}}
+			</div>
+			<div class="col-md-4">
+				{{form_row(form.avis)}}
+			</div>
+			<div class="col-md-4">
+				{{form_row(form.dateCreation)}}
+			</div>
+			<div class="col-md-4">
+				{{form_row(form.dateModif)}}
+			</div>
+
+
+		</div>
+		{{form_rest(form)}}
+		<button class="btn btn-primary">Enregistrer</button>
+		{{ form_end(form) }}
+
+
+	</div>
+
+{% endblock %}

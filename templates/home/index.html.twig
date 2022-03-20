@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+{% block title %}Acceuil{% endblock %}
+
+{% block body %}
+<div class="container">
+</div>
+<div class="container">
+<h2>Voici nos livres</h2>
+<div class="row flex">
+{% for livre in livres %}
+<div class="col-3" >
+<div class="card">
+<div class="card-body" style="border:solid">
+<h5 class="card-title">
+ <a href ="{{path('app_admin_edit',{id:livre.id})}}">{{livre.titre}}</a>
+</h5>
+<p class="card-text" style="font-weight:bold">Auteur : {{livre.auteur}}</p>
+<p class="card-text">Note : {{livre.note}}/5</p>
+<p class="card-text">Crée le {{livre.dateCreation|date('Y-m-d')}}</p>
+{% if  livre.dateModif != null %}<p class="card-text">Crée le {{livre.dateModif|date('Y-m-d')}}</p>{% endif %}
+<p class="card-text">Avis : {% if  livre.avis != ''%}{{livre.avis}}{% else %}
+   Pas d'avis{% endif %}</p>
+</div>
+</div>
+
+</div>
+
+{% endfor %}
+</div>
+{% endblock %}
